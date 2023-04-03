@@ -1,13 +1,13 @@
-﻿
-#include "InverseKinematics_2DOF.h"
+﻿#include "InverseKinematics_2DOF.h"
 #include <iostream>
 #include <fstream>
 #include <cmath>
 #include <chrono>
+
 using namespace std;
 
-int main()
-{
+int main() {
+    // Define the start and end points of the parabolic trajectory
     double P0[2] = {400, 0};
     double P2[2] = {-400, 0};
 
@@ -18,42 +18,25 @@ int main()
 
     // Generate n_points points on the parabolic trajectory
     const long long n_points = 6000000001;
-    double x=0;
-    double y=0;
+    double x, y;
     const double dx = (P2[0] - P0[0]) / (n_points - 1);
 
     // Calculate joint angles for each point along the trajectory
     auto begin = chrono::high_resolution_clock::now();
-  //  double** joint_angles = new double*[n_points];
     for (long long i = 0; i < n_points; i++) {
-    //    joint_angles[i] = new double[2];
-
-        double theta1, theta2;
         x = P0[0] + i * dx;
         y = a * x * x + b * x + c;
+        double theta1, theta2;
         inverseKinematics(x, y, theta1, theta2);
-        //joint_angles[i][0] = theta1;
-        //joint_angles[i][1] = theta2;
+        // Do something with the joint angles, such as save them to a file
     }
-
-    // Save joint angles to a file for plotting in Python
-//    ofstream outfile("joint_angles.txt");
-//    for (int i = 0; i < n_points; i++) {
-//        outfile << joint_angles[i][0] << " " << joint_angles[i][1] << endl;
-//    }
-//    outfile.close();
 
     auto end = chrono::high_resolution_clock::now();
     auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin);
-    printf("\nCzas realizacji algorytmu SEKWENCYJNEGO wynosi: %.0f [ms].\n", elapsed.count() * 1e-6);
+    double milliseconds = elapsed.count() * 1e-6;
     double seconds = elapsed.count() / 1e9;
+    printf("\nCzas realizacji algorytmu SEKWENCYJNEGO wynosi: %.0f [ms].\n", milliseconds);
     printf("\nCzas realizacji algorytmu SEKWENCYJNEGO wynosi: %.6f [s].\n", seconds);
-
-    // Free dynamically allocated memory
-//    for (int i = 0; i < n_points; i++) {
-//        delete[] joint_angles[i];
-//    }
-//    delete[] joint_angles;
 
     return 0;
 }
