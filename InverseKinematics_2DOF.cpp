@@ -23,3 +23,4 @@ void inverseKinematics(double x, double y, double &theta1, double &theta2) {
 
 
 }
+
