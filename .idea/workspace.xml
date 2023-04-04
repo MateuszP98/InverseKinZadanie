@@ -20,7 +20,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="First implementation of thread library for the inverse kinematics" />
+    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="First implementation of thread library for the inverse kinematics">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InverseKinZadanie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InverseKinZadanie.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +108,7 @@
       <workItem from="1680535899593" duration="1830000" />
       <workItem from="1680540073762" duration="477000" />
       <workItem from="1680557947217" duration="226000" />
-      <workItem from="1680623192387" duration="6877000" />
+      <workItem from="1680623192387" duration="9349000" />
     </task>
     <task id="LOCAL-00001" summary="First version of inverse kinematics function">
       <created>1680440166776</created>
@@ -160,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680629956638</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="First implementation of thread library for the inverse kinematics">
+      <created>1680630330914</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680630330914</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
