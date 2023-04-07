@@ -12,37 +12,33 @@
 using namespace std;
 mutex mtx;
 
+//Configuration variables
+bool WRITE_FILE = TRUE;
+bool WRITE_ARRAY = TRUE;
+
 //Define global variables
-const long long NUMBER_OF_POINTS = 5000;
+const long long NUMBER_OF_POINTS = 17000;
 const int NUMBER_OF_THREADS = 50;
+
 double *theta1Combined = (double *) malloc(NUMBER_OF_POINTS * sizeof(double));
 double *theta2Combined = (double *) malloc(NUMBER_OF_POINTS * sizeof(double));
 
-//Configuration variables
-bool WRITE_FILE = TRUE;
 
 // additional functions defining
 void
-calculateJointAngles(long long start, long long end, double dx, double P0, double a, double b, double c, double *theta1,
-                     double *theta2) {
+calculateJointAngles(long long start, long long end, double dx, double P0, double a, double b, double c) {
     double x, y;
     for (long long i = start; i < end; i++) {
         x = P0 + i * dx;
         y = a * x * x + b * x + c;
         double t1, t2;
         inverseKinematics(x, y, t1, t2);
-        // Store the joint angles in separate array
-        theta1[i - start] = t1;
-        theta2[i - start] = t2;
+        // Store the joint angles in separate
+        if (WRITE_ARRAY){
+            theta1Combined[i] += t1;
+            theta2Combined[i] += t2;
+        }
     }
-    mtx.lock();
-    for (long long i = start; i < end; i++) {
-        theta1Combined[i] += theta1[i - start];
-        theta2Combined[i] += theta2[i - start];
-    }
-    mtx.unlock();
-    free(theta1);
-    free(theta2);
 
 }
 
@@ -54,6 +50,7 @@ int main() {
     cout << "1. Sequential" << endl;
     cout << "2. Thread" << endl;
     cout << "3. OpenMP" << endl;
+    cout << "4. AutoMode" << endl;
     cout << "Enter choice: ";
     cin >> choice;
 
@@ -87,8 +84,10 @@ int main() {
             inverseKinematics(x, y, theta1, theta2);
 
             // Write the data to the final Array
-            theta1Combined[i] += theta1;
-            theta2Combined[i] += theta2;
+            if (WRITE_ARRAY) {
+                theta1Combined[i] += theta1;
+                theta2Combined[i] += theta2;
+            }
         }
 
         // calculate the execution time
@@ -98,8 +97,8 @@ int main() {
         double milliseconds = elapsed.count() * 1e-6;
         double seconds = elapsed.count() / 1e9;
 
-        cout << "\nCzas realizacji algorytmu SEWKENCYJNEGO wynosi: " << fixed << setprecision(0) << milliseconds
-             << " [ms], " << fixed << setprecision(6) << seconds << " [s].\n";
+        cout << "\nExecution time of SEQUENTIAL algorithm is: " << fixed << setprecision(6) << milliseconds << " [ms], "
+             << fixed << setprecision(6) << seconds << " [s].\n";
 
         //write the values to Coeff_A file
         if (WRITE_FILE) {
@@ -118,10 +117,9 @@ int main() {
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
             const long long start = i * NUMBER_OF_POINTS / NUMBER_OF_THREADS;
             const long long end = (i + 1) * NUMBER_OF_POINTS / NUMBER_OF_THREADS;
-            double *local_theta1 = (double *) malloc((end - start) * sizeof(double));
-            double *local_theta2 = (double *) malloc((end - start) * sizeof(double));
-            threads[i] = thread(calculateJointAngles, start, end, dx, P0[0], Coeff_A, Coeff_B, Coeef_B, local_theta1,
-                                local_theta2);
+
+            threads[i] = thread(calculateJointAngles, start, end, dx, P0[0], Coeff_A, Coeff_B, Coeef_B);
+
         }
         // Wait for threads to finish
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
@@ -135,7 +133,7 @@ int main() {
         double milliseconds = elapsed.count() * 1e-6;
         double seconds = elapsed.count() / 1e9;
 
-        cout << "\nCzas realizacji algorytmu WIELOWĄTKOWEGO wynosi: " << fixed << setprecision(0) << milliseconds
+        cout << "\nExecution time of MULTITHREADED algorithm is: " << fixed << setprecision(6) << milliseconds
              << " [ms], " << fixed << setprecision(6) << seconds << " [s].\n";
 
 
@@ -162,11 +160,13 @@ int main() {
             double theta1, theta2;
             inverseKinematics(x, y, theta1, theta2);
 
-            {
-                // Write the data to the final Array
+
+            // Write the data to the final Array
+            if (WRITE_ARRAY) {
                 theta1Combined[i] += theta1;
                 theta2Combined[i] += theta2;
             }
+
         }
         // calculate the execution time
         auto end = chrono::high_resolution_clock::now();
@@ -174,8 +174,9 @@ int main() {
         double milliseconds = elapsed.count() * 1e-6;
         double seconds = elapsed.count() / 1e9;
 
-        cout << "\nCzas realizacji algorytmu OpenMP wynosi: " << fixed << setprecision(0) << milliseconds << " [ms], "
+        cout << "\nExecution time of OpenMP algorithm is: " << fixed << setprecision(6) << milliseconds << " [ms], "
              << fixed << setprecision(6) << seconds << " [s].\n";
+
 
         if (WRITE_FILE) {
             // Write the values to Coeff_A file

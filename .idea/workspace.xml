@@ -20,20 +20,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="First implementation of thread library for the inverse kinematics">
-      <change afterPath="$PROJECT_DIR$/AdditonalFunctions.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdditonalFunctions.h" afterDir="false" />
+    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="All working">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InverseKinZadanie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InverseKinZadanie.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InverseKinematics_2DOF.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InverseKinematics_2DOF.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +42,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ThreadDevelopment" />
+        <entry key="$PROJECT_DIR$" value="ThreadDevelopmentWorking" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,12 +92,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="InverseKinZadanie" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="InverseKinZadanie" TARGET_NAME="InverseKinZadanie" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="InverseKinZadanie" RUN_TARGET_NAME="InverseKinZadanie">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InverseKinZadanie" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="InverseKinZadanie" TARGET_NAME="InverseKinZadanie" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="InverseKinZadanie" RUN_TARGET_NAME="InverseKinZadanie">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -123,6 +118,7 @@
       <workItem from="1680557947217" duration="226000" />
       <workItem from="1680623192387" duration="9368000" />
       <workItem from="1680713139506" duration="8655000" />
+      <workItem from="1680895717454" duration="1346000" />
     </task>
     <task id="LOCAL-00001" summary="First version of inverse kinematics function">
       <created>1680440166776</created>
@@ -216,7 +212,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="ThreadDevelopment" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

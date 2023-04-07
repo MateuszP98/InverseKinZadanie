@@ -14,5 +14,5 @@ typedef enum {
 // Function prototypes
 
 void inverseKinematics(double x, double y, double &theta1, double &theta2);
-void calculateJointAngles(long long start, long long end, double dx, double P0, double a, double b, double c, double* theta1, double* theta2);
+void calculateJointAngles(long long start, long long end, double dx, double P0, double a, double b, double c);
 #endif

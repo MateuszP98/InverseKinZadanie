@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/cmake-build-debug/joint_anglesOpenMP.txt
+/cmake-build-debug/joint_anglesThreadSeq.txt
+/cmake-build-debug/joint_anglesThreadNoRace.txt
