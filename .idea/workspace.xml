@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -20,15 +23,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="All working">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="21d9f096-9786-4000-8cd0-f2b7c60c9ad7" name="Changes" comment="Updated function for multithread">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdditonalFunctions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AdditonalFunctions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdditonalFunctions.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdditonalFunctions.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InverseKinZadanie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InverseKinZadanie.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InverseKinematics_2DOF.h" beforeDir="false" afterPath="$PROJECT_DIR$/InverseKinematics_2DOF.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/InverseKinZadanie.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +69,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2022" />
@@ -92,12 +101,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="InverseKinZadanie" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="InverseKinZadanie" TARGET_NAME="InverseKinZadanie" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="InverseKinZadanie" RUN_TARGET_NAME="InverseKinZadanie">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="InverseKinZadanie" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="InverseKinZadanie" TARGET_NAME="InverseKinZadanie" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="InverseKinZadanie" RUN_TARGET_NAME="InverseKinZadanie">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -118,7 +127,11 @@
       <workItem from="1680557947217" duration="226000" />
       <workItem from="1680623192387" duration="9368000" />
       <workItem from="1680713139506" duration="8655000" />
-      <workItem from="1680895717454" duration="1346000" />
+      <workItem from="1680895717454" duration="2344000" />
+      <workItem from="1680907858461" duration="56000" />
+      <workItem from="1680994783677" duration="708000" />
+      <workItem from="1681035594193" duration="273000" />
+      <workItem from="1681037122608" duration="10686000" />
     </task>
     <task id="LOCAL-00001" summary="First version of inverse kinematics function">
       <created>1680440166776</created>
@@ -190,11 +203,24 @@
       <option name="project" value="LOCAL" />
       <updated>1680642735127</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updated function for multithread">
+      <created>1680897269214</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680897269214</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticEditVcpkgJson value="false" />
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticFoundErrors value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -229,6 +255,18 @@
     <MESSAGE value="First version of inverse kinematics function -&gt; without writing" />
     <MESSAGE value="Parabolic inverse kinematics solved with sequential solution" />
     <MESSAGE value="First implementation of thread library for the inverse kinematics" />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation of thread library for the inverse kinematics" />
+    <MESSAGE value="Updated function for multithread" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated function for multithread" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/InverseKinZadanie.cpp</url>
+          <line>241</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,5 +1,3 @@
-#include <cmath>
-#include <iomanip>
 #include "AdditonalFunctions.h"
 
 void WriteJointAngles(const string &filename, double *theta1, double *theta2, long long n_points) {
@@ -20,13 +18,24 @@ void WriteJointAngles(const string &filename, double *theta1, double *theta2, lo
     outfile.close();
 }
 
-void writeComputingTimes(const std::string &filename, double timeSequence, double timeThread, long long TimeOpenMP,
-                         int Threads) {
+void writeComputingTimes(const std::string &filename, double timeSequence, double timeThread, double TimeOpenMP,
+                         long long Threads) {
 
-    std::ofstream outFile(filename.c_str());
-    if (outFile.is_open()) {
+    // Open the file in append mode
+    std::ofstream outFile(filename, std::ios_base::app);
+
+    if (outFile.is_open()) { // Check if the file is opened successfully
+
+        // Set output stream formatting
+        outFile << std::fixed << std::setprecision(4);
+
+        // Write data to the file
         outFile << Threads << " " << timeSequence << " " << timeThread << " " << TimeOpenMP << std::endl;
-        outFile.close();
-    }
 
+        // Close the file
+        outFile.close();
+
+    } else {
+        std::cout << "Failed to open file for writing." << std::endl;
+    }
 }

@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(InverseKinZadanie
         InverseKinematics_2DOF.cpp
         InverseKinematics_2DOF.h
-        InverseKinZadanie.cpp AdditonalFunctions.cpp AdditonalFunctions.h)
+        InverseKinZadanie.cpp
+        AdditonalFunctions.cpp
+        AdditonalFunctions.h)
