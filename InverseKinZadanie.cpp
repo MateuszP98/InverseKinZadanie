@@ -63,7 +63,7 @@ int main() {
     // Define the coefficients of the quadratic equation
     const double Coeff_A = -0.0025;
     const double Coeff_B = 0.0;
-    const double Coeef_B = 400.0;
+    const double Coeff_C = 400.0;
 
     // Predefine x and y for the trajectory points
 
@@ -125,7 +125,7 @@ int main() {
             // Calculate all the points of the trajectory
             for (long long i = 0; i < numberOfPoints; i++) {
                 x = P0[0] + i * dx;
-                y = Coeff_A * x * x + Coeff_B * x + Coeef_B;
+                y = Coeff_A * x * x + Coeff_B * x + Coeff_C;
                 double theta1, theta2;
                 inverseKinematics(x, y, theta1, theta2);
 
@@ -166,7 +166,7 @@ int main() {
             for (int i = 0; i < numberOfThreads; i++) {
                 const long long start = i * numberOfPoints / numberOfThreads;
                 const long long end = (i + 1) * numberOfPoints / numberOfThreads;
-                threads[i] = thread(calculateJointAngles, start, end, dx, P0[0], Coeff_A, Coeff_B, Coeef_B);
+                threads[i] = thread(calculateJointAngles, start, end, dx, P0[0], Coeff_A, Coeff_B, Coeff_C);
             }
 
             // Wait for threads to finish
@@ -204,7 +204,7 @@ int main() {
 #pragma omp parallel for
             for (long long i = 0; i < numberOfPoints; i++) {
                 double x = P0[0] + i * dx;
-                double y = Coeff_A * x * x + Coeff_B * x + Coeef_B;
+                double y = Coeff_A * x * x + Coeff_B * x + Coeff_C;
                 double theta1, theta2;
                 inverseKinematics(x, y, theta1, theta2);
 
